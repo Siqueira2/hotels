@@ -1,0 +1,8 @@
+{
+  "title": "Reservar hotel",
+  "search": {
+    "placeholder": "Digite o nome da cidade ou estado",
+    "no-results": "Nenhuma cidade ou estado encontrado",
+    "action": "Alterar busca"
+  }
+}
