@@ -14,15 +14,17 @@
             :options="filteredPlaces"
             dense
             outlined
-            required
             use-input
             hide-selected
             hide-dropdown-icon
+            fill-input
             class="full-width row"
+            :disable="loading"
+            :loading
             input-debounce="0"
             :placeholder="$t('hotels.search.placeholder')"
             @filter="filterPlaces"
-            @input-value="setFilteredPlaces"
+            @update:model-value="setModel"
           >
             <template #no-option>
               <div class="q-pa-md">
@@ -49,17 +51,24 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
-import { usePlaceStore } from 'src/stores/place'
+
 import type { Place } from 'src/interfaces'
 
-const model = ref(null)
+import { usePlaceStore } from 'src/stores/place'
+
+type FormattedPlace = Place & { label: string; value: number }
+
 const placeStore = usePlaceStore()
 const { places } = storeToRefs(placeStore)
 const { fetchPlaces } = placeStore
 
+const model = ref<string | null>(null)
+const loading = ref<boolean>(false)
+
 onMounted(async () => {
+  loading.value = true
   await fetchPlaces()
-  setFilteredPlaces()
+  loading.value = false
 })
 
 const formattedPlaces = computed(() =>
@@ -70,17 +79,17 @@ const formattedPlaces = computed(() =>
   })),
 )
 
-const filteredPlaces = ref<Array<Place & { label: string; value: number }>>([])
+const filteredPlaces = ref<FormattedPlace[]>([])
 const setFilteredPlaces = () => {
   filteredPlaces.value = formattedPlaces.value
 }
 
-const filterPlaces = (search: string, update: (fn: VoidFunction) => void) => {
-  if (!search) {
-    setFilteredPlaces()
-    return
-  }
+const setModel = (place: FormattedPlace) => {
+  model.value = place.label
+}
 
+const filterPlaces = (search: string, update: (fn: () => void) => void) => {
+  setFilteredPlaces()
   update(() => {
     const searchText = search.toLowerCase()
     filteredPlaces.value = formattedPlaces.value.filter((place) =>
