@@ -8,8 +8,8 @@ import type { Hotel as HotelModel } from 'src/models/hotel'
 export const useHotelStore = defineStore('hotels', () => {
   const hotels = ref<HotelModel[]>([])
 
-  const fetchHotels = async () => {
-    const response = await fetchPlaceHotels()
+  const fetchHotels = async (page: number = 1, limit: number = 10) => {
+    const response = await fetchPlaceHotels({ page, limit })
     hotels.value = response.flatMap(({ hotels }) => hotels)
   }
 
