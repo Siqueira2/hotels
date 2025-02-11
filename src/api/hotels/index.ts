@@ -45,7 +45,7 @@ export const fetchPlaceHotels = async (pagination: PaginationParams) => {
             (placeHotel) => new PlaceHotelModel(placeHotel),
           ),
         ),
-      2000,
+      1000,
     ),
   )
 }

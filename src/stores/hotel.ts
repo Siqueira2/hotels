@@ -10,7 +10,13 @@ export const useHotelStore = defineStore('hotels', () => {
 
   const fetchHotels = async (page: number = 1, limit: number = 10) => {
     const response = await fetchPlaceHotels({ page, limit })
-    hotels.value = response.flatMap(({ hotels }) => hotels)
+    const newHotelsData = response.flatMap(({ hotels }) => hotels)
+
+    if (page === 1) {
+      return (hotels.value = newHotelsData)
+    }
+
+    hotels.value.push(...newHotelsData)
   }
 
   const getRecommendedHotels = () => {
