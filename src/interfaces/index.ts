@@ -12,16 +12,23 @@ export interface Place {
 }
 
 export interface Amenity {
-  key: AmenitiesEnum
+  key: keyof typeof AmenitiesEnum
   label: string
+}
+
+export interface PlaceHotels {
+  placeId: number
+  hotels: Hotel[]
 }
 
 export interface Address {
   fullAddress: string
   city: string
-  district: string | null
+  district: string
   street: string
   state: string
+  number: string
+  country: string
   zipCode: string | null
 }
 
@@ -43,5 +50,3 @@ export interface Hotel {
   roomsQuantity: number
   price: number
 }
-
-export type HotelsResponse = Array<{ hotels: Hotel[]; placeId: number }>
