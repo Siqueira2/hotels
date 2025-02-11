@@ -98,4 +98,8 @@ export class Hotel {
   public get getAmenities(): Amenity[] | null {
     return this.amenities
   }
+
+  public get getPricePerNight(): number {
+    return Number((this.price / this.roomsQuantity).toFixed(2))
+  }
 }

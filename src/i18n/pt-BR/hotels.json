@@ -4,5 +4,12 @@
     "placeholder": "Digite o nome da cidade ou estado",
     "no-results": "Nenhuma cidade ou estado encontrado",
     "action": "Alterar busca"
+  },
+
+  "hotel": {
+    "refundable": "Reembolsável",
+    "price-per-night": "{price}/noite",
+    "included-taxes": "Imposto incluídos",
+    "from": "A partir de"
   }
 }
