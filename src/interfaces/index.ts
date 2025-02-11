@@ -43,3 +43,5 @@ export interface Hotel {
   roomsQuantity: number
   price: number
 }
+
+export type HotelsResponse = Array<{ hotels: Hotel[]; placeId: number }>
