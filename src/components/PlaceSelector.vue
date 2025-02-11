@@ -51,6 +51,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 
 import type { Place } from 'src/interfaces'
 
@@ -58,6 +59,7 @@ import { usePlaceStore } from 'src/stores/place'
 
 type FormattedPlace = Place & { label: string; value: number }
 
+const router = useRouter()
 const placeStore = usePlaceStore()
 const { places } = storeToRefs(placeStore)
 const { fetchPlaces } = placeStore
@@ -98,9 +100,16 @@ const filterPlaces = (search: string, update: (fn: () => void) => void) => {
   })
 }
 
-const onSubmit = () => {
-  console.log({
-    destination: model.value,
+const onSubmit = async () => {
+  if (!model.value) return
+
+  const selectedPlace = formattedPlaces.value.find((place) => place.label === model.value)
+  if (!selectedPlace) return
+
+  await router.push({
+    query: {
+      name: selectedPlace.label,
+    },
   })
 }
 </script>

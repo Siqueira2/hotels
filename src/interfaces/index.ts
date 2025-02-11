@@ -50,3 +50,10 @@ export interface Hotel {
   roomsQuantity: number
   price: number
 }
+
+export interface FetchHotelsParams {
+  page?: number
+  limit?: number
+  name?: string
+  sortBy?: string
+}
