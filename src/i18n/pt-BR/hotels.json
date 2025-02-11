@@ -1,5 +1,6 @@
 {
   "title": "Reservar hotel",
+  "no-hotels": "Nenhum hotel encontrado!",
   "search": {
     "placeholder": "Digite o nome da cidade ou estado",
     "no-results": "Nenhuma cidade ou estado encontrado",
