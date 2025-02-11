@@ -1,8 +1,13 @@
-import type { HotelsResponse } from 'src/interfaces'
-import hotels from 'src/data/hotel.json'
+import type { PlaceHotels } from 'src/interfaces'
+import { PlaceHotelModel } from 'src/models/placeHotel'
+import placeHotels from 'src/data/hotel.json'
 
-export const fetchHotels = async () => {
-  return await new Promise<HotelsResponse>((resolve) =>
-    setTimeout(() => resolve(hotels as HotelsResponse), 2000),
+export const fetchPlaceHotels = async () => {
+  return await new Promise<PlaceHotelModel[]>((resolve) =>
+    setTimeout(
+      () =>
+        resolve(placeHotels.map((placeHotel) => new PlaceHotelModel(placeHotel as PlaceHotels))),
+      2000,
+    ),
   )
 }
