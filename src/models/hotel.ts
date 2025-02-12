@@ -1,5 +1,7 @@
 import type { Hotel as HotelType, Address, Amenity } from 'src/interfaces'
 
+import { formatCurrency } from 'src/helpers'
+
 export class Hotel {
   private id: number
   private name: string
@@ -63,8 +65,8 @@ export class Hotel {
     return this.amenities !== null && this.amenities.length > 0
   }
 
-  public get getPrice(): number {
-    return this.price
+  public get getPrice(): string {
+    return formatCurrency(this.price)
   }
 
   public get getHasBreakfast(): boolean {
@@ -99,7 +101,7 @@ export class Hotel {
     return this.amenities
   }
 
-  public get getPricePerNight(): number {
-    return Number((this.price / this.roomsQuantity).toFixed(2))
+  public get getPricePerNight(): string {
+    return formatCurrency(Number(this.price / this.roomsQuantity))
   }
 }

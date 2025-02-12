@@ -73,14 +73,16 @@
         </p>
 
         <h5 class="text-grey-2 q-ma-none">
-          <span class="text-caption">{{ t('shared.currency') }}</span>
+          <span class="text-caption q-mr-xs">
+            {{ $t('shared.currency') }}
+          </span>
 
-          <span class="text-weight-semibold">{{ hotel.getPrice.toFixed(2) }}</span>
+          <span class="text-weight-semibold">
+            {{ getCurrencyText(hotel.getPrice) }}
+          </span>
         </h5>
 
         <p class="text-grey-6 text-caption q-ma-none">
-          <span>{{ $t('shared.currency') }}</span>
-
           {{ getPricePerNightText }}
         </p>
 
@@ -119,6 +121,10 @@ const slide = ref(0)
 const getPricePerNightText = computed(() =>
   t('hotels.hotel.price-per-night', { price: hotel.getPricePerNight }),
 )
+
+const getCurrencyText = (price: string): string => {
+  return price.replace('R$', '').trim()
+}
 
 const getAmenityIcon = (amenity: keyof typeof AmenitiesEnum) => {
   return AmenitiesEnum[amenity] || 'mdi-help'
