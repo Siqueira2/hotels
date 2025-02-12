@@ -16,6 +16,12 @@ const filterHotels = (
         const stateMatch = hotel.address.state.toLowerCase().includes(state.toLowerCase())
         return nameMatch || stateMatch
       })
+      .sort((a, b) => {
+        if (sortBy === 'rating') {
+          return Number(b.stars) - Number(a.stars)
+        }
+        return 0
+      })
       .map((hotel) => ({
         placeId: place.placeId,
         hotels: [hotel],
@@ -37,16 +43,6 @@ const filterHotels = (
 
       return aggregatedPlaces
     }, [])
-
-  if (sortBy === 'rating') {
-    filteredHotels.sort((a, b) => {
-      const avgRatingA =
-        a.hotels.reduce((sum, hotel) => sum + Number(hotel.stars), 0) / a.hotels.length
-      const avgRatingB =
-        b.hotels.reduce((sum, hotel) => sum + Number(hotel.stars), 0) / b.hotels.length
-      return avgRatingB - avgRatingA
-    })
-  }
 
   return filteredHotels
 }
