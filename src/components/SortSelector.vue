@@ -25,13 +25,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 type Option = { label: string; value: string }
 
 const { t } = useI18n()
 const router = useRouter()
+const route = useRoute()
 
 const options = ref<Option[]>([
   { label: t('shared.sort.recommended'), value: 'recommended' },
@@ -46,7 +47,12 @@ const handlePopupState = () => {
 }
 
 const updateSort = async () => {
-  await router.push({ query: { sort: selectedOption.value.value } })
+  await router.push({
+    query: {
+      ...route.query,
+      sort: selectedOption.value.value,
+    },
+  })
 }
 </script>
 

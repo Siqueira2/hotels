@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 import type { Place } from 'src/interfaces'
 
@@ -60,6 +60,7 @@ import { usePlaceStore } from 'src/stores/place'
 type FormattedPlace = Place & { label: string; value: number }
 
 const router = useRouter()
+const route = useRoute()
 const placeStore = usePlaceStore()
 const { places } = storeToRefs(placeStore)
 const { fetchPlaces } = placeStore
@@ -108,6 +109,7 @@ const onSubmit = async () => {
 
   await router.push({
     query: {
+      ...route.query,
       name: selectedPlace.label,
     },
   })
