@@ -122,7 +122,8 @@ const getPricePerNightText = computed(() =>
   t('hotels.hotel.price-per-night', { price: hotel.getPricePerNight }),
 )
 
-const getCurrencyText = (price: string): string => {
+const getCurrencyText = (price: string | undefined): string => {
+  if (!price) return ''
   return price.replace('R$', '').trim()
 }
 
