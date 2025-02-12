@@ -6,11 +6,6 @@ import type { ComponentPublicInstance } from 'vue'
 import SortSelector from 'src/components/SortSelector.vue'
 
 vi.mock('vue-router')
-vi.mock('vue-i18n', () => ({
-  useI18n: () => ({
-    t: (key: string) => key,
-  }),
-}))
 
 type SortSelectorWrapper = VueWrapper<ComponentPublicInstance<typeof SortSelector>>
 
@@ -39,15 +34,15 @@ describe('SortSelector', () => {
   it('should have correct default options', () => {
     const options = wrapper.vm.options
     expect(options).toEqual([
-      { label: 'shared.sort.recommended', value: 'recommended' },
-      { label: 'shared.sort.rating', value: 'rating' },
+      { label: 'Recomendados', value: 'recommended' },
+      { label: 'Melhores Avaliações', value: 'rating' },
     ])
   })
 
   it('should have recommended as default selected option', () => {
     const selectedOption = wrapper.vm.selectedOption
     expect(selectedOption).toEqual({
-      label: 'shared.sort.recommended',
+      label: 'Recomendados',
       value: 'recommended',
     })
   })
@@ -59,7 +54,7 @@ describe('SortSelector', () => {
 
   it('should render selected option label', () => {
     const selectedLabel = wrapper.find('.text-primary')
-    expect(selectedLabel.text()).toBe('shared.sort.recommended')
+    expect(selectedLabel.text()).toBe('Recomendados')
   })
 
   it('should render expand icon', () => {
