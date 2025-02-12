@@ -1,3 +1,8 @@
 {
-  "currency": "R$"
+  "currency": "R$",
+  "sort-by": "Organizar por",
+  "sort": {
+    "recommended": "Recomendados",
+    "rating": "Melhores Avaliações"
+  }
 }

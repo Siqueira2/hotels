@@ -39,10 +39,10 @@ const loading = ref(true)
 const loadingNextPage = ref(false)
 
 const fetchHotels = async (params: { page: number }) => {
-  console.log('fetchHotels', route.query.name)
   await hotelStore.fetchHotels({
     page: params.page,
     name: route.query.name as string,
+    sortBy: route.query.sort as string,
   })
 }
 
