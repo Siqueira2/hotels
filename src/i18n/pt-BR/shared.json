@@ -4,5 +4,8 @@
   "sort": {
     "recommended": "Recomendados",
     "rating": "Melhores Avaliações"
+  },
+  "actions": {
+    "select": "Selecionar"
   }
 }

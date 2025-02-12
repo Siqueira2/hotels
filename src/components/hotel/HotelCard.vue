@@ -89,7 +89,14 @@
         </p>
       </div>
 
-      <q-btn color="primary" label="Selecionar" rounded unelevated class="q-mt-lg" />
+      <q-btn
+        color="primary"
+        :label="$t('shared.actions.select')"
+        rounded
+        unelevated
+        class="q-mt-lg"
+        @click="$emit('select', hotel)"
+      />
     </q-card-section>
   </q-card>
 </template>
@@ -116,6 +123,10 @@ const getPricePerNightText = computed(() =>
 const getAmenityIcon = (amenity: keyof typeof AmenitiesEnum) => {
   return AmenitiesEnum[amenity] || 'mdi-help'
 }
+
+defineEmits<{
+  select: [hotel: Hotel]
+}>()
 </script>
 
 <style scoped lang="scss">

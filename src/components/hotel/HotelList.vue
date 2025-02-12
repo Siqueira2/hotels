@@ -5,7 +5,12 @@
     </div>
 
     <template v-else-if="hotels.length">
-      <HotelCard v-for="hotel in hotels" :key="hotel.getId" :hotel="hotel as Hotel" />
+      <HotelCard
+        v-for="hotel in hotels"
+        :key="hotel.getId"
+        :hotel="hotel as Hotel"
+        @select="openDrawer"
+      />
     </template>
 
     <div v-else class="row justify-center q-my-md">
@@ -18,6 +23,8 @@
       </div>
     </template>
   </q-infinite-scroll>
+
+  <HotelDrawer v-if="selectedHotel" :hotel="selectedHotel as Hotel" v-model="drawerOpen" />
 </template>
 
 <script setup lang="ts">
@@ -29,6 +36,7 @@ import { useHotelStore } from 'src/stores/hotel'
 import type { Hotel } from 'src/models/hotel'
 
 import HotelCard from 'src/components/hotel/HotelCard.vue'
+import HotelDrawer from 'src/components/hotel/HotelDrawer.vue'
 
 const route = useRoute()
 const hotelStore = useHotelStore()
@@ -37,6 +45,8 @@ const { hotels } = storeToRefs(hotelStore)
 const page = ref(1)
 const loading = ref(true)
 const loadingNextPage = ref(false)
+const drawerOpen = ref(false)
+const selectedHotel = ref<Hotel | null>(null)
 
 const fetchHotels = async (params: { page: number }) => {
   await hotelStore.fetchHotels({
@@ -54,6 +64,11 @@ const onLoad = async (_: number, done: VoidFunction) => {
     loadingNextPage.value = false
   }
   done()
+}
+
+const openDrawer = (hotel: Hotel) => {
+  selectedHotel.value = hotel
+  drawerOpen.value = true
 }
 
 onMounted(async () => {

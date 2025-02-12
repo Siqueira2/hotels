@@ -12,6 +12,13 @@
     "refundable": "Reembolsável",
     "price-per-night": "{price}/noite",
     "included-taxes": "Imposto incluídos",
-    "from": "A partir de"
+    "from": "A partir de",
+
+    "drawer": {
+      "amenities-title": "Facilidades do hotel",
+      "description": "Conheça um pouco mais",
+      "show-all": "Mostrar todas as facilidades",
+      "show-less": "Mostrar menos"
+    }
   }
 }
