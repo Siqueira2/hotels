@@ -59,7 +59,7 @@ import { ref, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter, useRoute } from 'vue-router'
 
-import type { Place } from 'src/interfaces'
+import type { Place } from 'src/models/place'
 
 import { usePlaceStore } from 'src/stores/place'
 
@@ -82,8 +82,8 @@ onMounted(async () => {
 
 const formattedPlaces = computed(() =>
   places.value.map((place) => ({
-    label: `${place.name}, ${place.state.shortname}`,
-    value: place.placeId,
+    label: place.formattedName,
+    value: place.getPlaceId,
     ...place,
   })),
 )
