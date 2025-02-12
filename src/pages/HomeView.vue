@@ -3,7 +3,8 @@
     <div class="col-12 col-md-8">
       <PlaceSelector />
 
-      <div class="row justify-end q-mt-md">
+      <div class="row justify-between q-mt-md">
+        <BreadCrumb />
         <SortSelector />
       </div>
 
@@ -16,6 +17,7 @@
 import PlaceSelector from 'src/components/PlaceSelector.vue'
 import HotelList from 'src/components/hotel/HotelList.vue'
 import SortSelector from 'src/components/SortSelector.vue'
+import BreadCrumb from 'src/components/BreadCrumb.vue'
 </script>
 
 <style scoped lang="scss">
