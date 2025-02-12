@@ -9,6 +9,12 @@
 
       <q-card-section>
         <q-form @submit="onSubmit">
+          <p class="text-weight-semibold q-mb-sm text-grey-6">
+            {{ $t('hotels.search.label') }}
+
+            <span class="text-red-5 text-weight-bold">*</span>
+          </p>
+
           <q-select
             v-model="model"
             :options="filteredPlaces"
@@ -115,9 +121,3 @@ const onSubmit = async () => {
   })
 }
 </script>
-
-<style lang="scss" scoped>
-.q-btn__content span {
-  line-height: initial;
-}
-</style>
