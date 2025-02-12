@@ -50,7 +50,7 @@
         </h6>
         <q-separator />
 
-        <div class="row q-gutter-x-xl q-my-md">
+        <div class="row q-gutter-x-xl q-my-md" data-testid="hotel-amenities">
           <div v-for="amenity in getHotelAmenities" :key="amenity.key" class="row q-mb-sm">
             <q-icon :name="getAmenityIcon(amenity.key)" size="xs" color="grey-6" class="q-mr-sm" />
 
@@ -76,7 +76,7 @@
           {{ t('hotels.hotel.drawer.description') }}
         </h6>
 
-        <p class="text-grey-5">
+        <p class="text-grey-5" data-testid="hotel-description">
           {{ hotel.getDescription }}
         </p>
       </q-card-section>

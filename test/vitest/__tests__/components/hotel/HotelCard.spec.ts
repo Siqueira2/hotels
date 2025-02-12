@@ -10,12 +10,7 @@ import HOTEL from 'src/data/hotel.json'
 
 const mockHotel = new Hotel(HOTEL[0]?.hotels[0] as HotelType)
 
-const createWrapper = () =>
-  mount(HotelCard, {
-    props: {
-      hotel: mockHotel as unknown as Hotel,
-    },
-  }) as VueWrapper
+const createWrapper = () => mount(HotelCard, { props: { hotel: mockHotel } }) as VueWrapper
 
 describe('HotelCard', () => {
   let wrapper: VueWrapper
