@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center q-pa-md">
+  <q-page-container class="row justify-center">
     <div class="col-12 col-md-8">
       <PlaceSelector />
 
@@ -9,7 +9,7 @@
 
       <HotelList />
     </div>
-  </div>
+  </q-page-container>
 </template>
 
 <script setup lang="ts">
@@ -17,3 +17,9 @@ import PlaceSelector from 'src/components/PlaceSelector.vue'
 import HotelList from 'src/components/hotel/HotelList.vue'
 import SortSelector from 'src/components/SortSelector.vue'
 </script>
+
+<style scoped lang="scss">
+.q-page-container {
+  min-height: 100vh;
+}
+</style>
