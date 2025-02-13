@@ -3,8 +3,8 @@
   "no-hotels": "Nenhum hotel encontrado!",
   "search": {
     "label": "Destino",
-    "placeholder": "Digite o nome da cidade ou estado",
-    "no-results": "Nenhuma cidade ou estado encontrado",
+    "placeholder": "Digite o nome do hotel, cidade ou estado",
+    "no-results": "Nenhum hotel, cidade ou estado encontrado",
     "action": "Alterar busca",
     "button-label": "Buscar"
   },
