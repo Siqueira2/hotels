@@ -1,6 +1,6 @@
 <template>
   <q-card flat class="q-mt-md row">
-    <HotelCarousel :hotel class="col-12 col-sm-3" />
+    <HotelCarousel :hotel class="col-12 col-sm-3 carousel" />
 
     <q-card-section class="col-12 col-sm-5 col-md-6">
       <h6 class="text-grey-2 q-ma-none text-weight-regular">
@@ -118,7 +118,7 @@ defineEmits<{
 </script>
 
 <style scoped lang="scss">
-.q-carousel {
+.carousel {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: inherit !important;

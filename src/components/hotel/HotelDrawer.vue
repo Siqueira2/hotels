@@ -23,7 +23,7 @@
         </p>
       </q-card-section>
 
-      <HotelCarousel :hotel :height="400" class="q-mx-md" />
+      <HotelCarousel :hotel :height="400" class="q-mx-md carousel" />
 
       <q-card-section v-if="hotel.hasAmenities">
         <h6 class="text-grey-2 q-mt-none q-mb-md text-weight-regular">
@@ -126,7 +126,7 @@ const getAmenityIcon = (amenity: keyof typeof AmenitiesEnum) => {
   opacity: 0.7;
 }
 
-.q-carousel {
+.carousel {
   border-radius: 16px !important;
 }
 </style>
