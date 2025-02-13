@@ -23,7 +23,7 @@
         </p>
       </q-card-section>
 
-      <HotelCarousel :hotel :height="400" class="q-mx-md carousel" />
+      <HotelCarousel :hotel :height="400" class="q-mx-md carousel" show-counter />
 
       <q-card-section v-if="hotel.hasAmenities">
         <h6 class="text-grey-2 q-mt-none q-mb-md text-weight-regular">

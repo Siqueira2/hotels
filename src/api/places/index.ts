@@ -1,4 +1,4 @@
-import { Place } from 'src/models/place'
+import { Place } from 'src/models'
 import places from 'src/data/place.json'
 
 export const fetchPlaces = async () => {
