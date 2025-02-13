@@ -10,6 +10,7 @@
   },
   "breadcrumbs": {
     "home": "Início",
-    "hotels": "Hotéis"
+    "hotels": "Hotéis",
+    "accommodation": "Hospedagem em {suffix}"
   }
 }
