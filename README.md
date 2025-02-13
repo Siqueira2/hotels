@@ -1,40 +1,63 @@
-# hoteis (hoteis)
+# Guia para Subir o Frontend com Docker e Executar Testes
 
-A Quasar Project
+Este guia fornece instruções para configurar e executar o ambiente frontend utilizando Docker, além de orientações para rodar os testes automatizados e executar o projeto localmente com `npm install`.
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
+## Requisitos
+
+Certifique-se de que sua máquina possui os seguintes softwares instalados:
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Node.js e npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/)
+
+## Passos para Subir o Frontend com Docker
+
+1. **Construir e Iniciar o Container**
+
+   Execute os comandos abaixo para construir a imagem Docker e iniciar o container em segundo plano:
+
+   ```
+   docker compose pull
+   docker compose build
+   docker compose up -d
+   ```
+
+Este comando executa o ambiente no modo destacado (background).
+
+### 3. Acessar a Aplicação
+
+Após o container estar em execução, acesse o frontend através do endereço:
+
+```
+http://localhost:9000
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
+### 4. Parar o Container
+
+Para interromper a execução do container, utilize o comando:
+
+```
+docker compose down
 ```
 
+## Executar Testes Automatizados
 
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
+### Acessar o Container
+
+Utilize o comando abaixo para acessar o shell do container em execução:
+
+```
+docker compose exec frontend sh
 ```
 
+### Executar os Testes
 
-### Format the files
-```bash
-yarn format
-# or
-npm run format
+Dentro do container, execute o seguinte comando para rodar os testes:
+
 ```
-
-
-### Build the app for production
-```bash
-quasar build
+npm run test:unit
 ```
 
 ### Customize the configuration
+
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
