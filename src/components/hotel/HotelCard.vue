@@ -1,25 +1,6 @@
 <template>
   <q-card flat class="q-mt-md row">
-    <q-carousel
-      class="col-12 col-sm-3"
-      v-model="slide"
-      animated
-      arrows
-      navigation
-      infinite
-      :autoplay="10000"
-      style="height: 256px"
-    >
-      <q-carousel-slide
-        v-for="(image, index) in hotel.getImages"
-        :key="index"
-        :name="index"
-        style="height: 256px"
-        class="q-pa-none overflow-hidden"
-      >
-        <q-img :src="image" basic class="full-width" style="height: 256px" fit="cover" />
-      </q-carousel-slide>
-    </q-carousel>
+    <HotelCarousel :hotel class="col-12 col-sm-3" />
 
     <q-card-section class="col-12 col-sm-5 col-md-6">
       <h6 class="text-grey-2 q-ma-none text-weight-regular">
@@ -104,19 +85,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import type { Hotel } from 'src/models/hotel'
 import { AmenitiesEnum } from 'src/interfaces'
+
+import HotelCarousel from 'src/components/hotel/HotelCarousel.vue'
 
 const { hotel } = defineProps<{
   hotel: Hotel
 }>()
 
 const { t } = useI18n()
-
-const slide = ref(0)
 
 const getPricePerNightText = computed(() =>
   t('hotels.hotel.price-per-night', { price: hotel.getPricePerNight }),

@@ -23,31 +23,13 @@
         </p>
       </q-card-section>
 
-      <q-carousel
-        v-model="slide"
-        animated
-        arrows
-        navigation
-        infinite
-        :autoplay="10000"
-        class="q-mx-md"
-        style="height: 400px"
-      >
-        <q-carousel-slide
-          v-for="(image, index) in hotel.getImages"
-          :key="index"
-          :name="index"
-          style="height: 400px"
-          class="q-pa-none overflow-hidden"
-        >
-          <q-img :src="image" basic class="full-width" style="height: 400px" fit="cover" />
-        </q-carousel-slide>
-      </q-carousel>
+      <HotelCarousel :hotel :height="400" class="q-mx-md" />
 
       <q-card-section v-if="hotel.hasAmenities">
         <h6 class="text-grey-2 q-mt-none q-mb-md text-weight-regular">
           {{ t('hotels.hotel.drawer.amenities-title') }}
         </h6>
+
         <q-separator />
 
         <div class="row q-gutter-x-xl q-my-md" data-testid="hotel-amenities">
@@ -92,6 +74,8 @@ import type { Hotel } from 'src/models/hotel'
 
 import { AmenitiesEnum } from 'src/interfaces'
 
+import HotelCarousel from 'src/components/hotel/HotelCarousel.vue'
+
 const { t } = useI18n()
 
 const { hotel, modelValue } = defineProps<{
@@ -103,7 +87,6 @@ const emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
 
-const slide = ref(0)
 const showAmenities = ref(false)
 const amenitiesLimit = ref(4)
 
