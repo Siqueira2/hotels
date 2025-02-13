@@ -1,22 +1,51 @@
 import type { PlaceHotels, FetchHotelsParams, Hotel } from 'src/interfaces'
 
 export class HotelFilterService {
+  private isLocationSearch(searchTerm: string): boolean {
+    return searchTerm.includes(',')
+  }
+
+  private matchesCityAndState(hotel: Hotel, city: string, state: string): boolean {
+    const hotelCity = hotel.address.city.toLowerCase()
+    const hotelState = hotel.address.state.toLowerCase()
+
+    return hotelCity.includes(city) && hotelState.includes(state)
+  }
+
+  private matchesGeneralSearch(hotel: Hotel, searchTerm: string): boolean {
+    const hotelName = hotel.name.toLowerCase()
+    const hotelCity = hotel.address.city.toLowerCase()
+    const hotelState = hotel.address.state.toLowerCase()
+
+    return (
+      hotelName.includes(searchTerm) ||
+      hotelCity.includes(searchTerm) ||
+      hotelState.includes(searchTerm)
+    )
+  }
+
   private filterByLocation(hotel: Hotel, searchName: string): boolean {
     if (!searchName) return true
 
-    const [city = '', state = ''] = searchName.split(',')
-    const cityMatch = hotel.address.city.toLowerCase().includes(city.toLowerCase())
-    const stateMatch = hotel.address.state.toLowerCase().includes(state.toLowerCase())
-    const hotelNameMatch = hotel.name.toLowerCase().includes(searchName.toLowerCase())
+    const searchTerm = searchName.toLowerCase().trim()
 
-    return cityMatch || stateMatch || hotelNameMatch
+    if (this.isLocationSearch(searchTerm)) {
+      const [city = '', state = ''] = searchTerm.split(',').map((term) => term.trim())
+      return this.matchesCityAndState(hotel, city, state)
+    }
+
+    return this.matchesGeneralSearch(hotel, searchTerm)
   }
 
   private sortHotels(hotelA: Hotel, hotelB: Hotel, sortBy: string): number {
-    if (sortBy === 'rating') {
-      return Number(hotelB.stars) - Number(hotelA.stars)
+    switch (sortBy) {
+      case 'rating':
+        return Number(hotelB.stars) - Number(hotelA.stars)
+      case 'recommended':
+        return Number(hotelA.price) - Number(hotelB.price)
+      default:
+        return 0
     }
-    return 0
   }
 
   private flattenAndTransformHotels(
@@ -51,9 +80,13 @@ export class HotelFilterService {
 
   public filterHotels(
     places: PlaceHotels[],
-    { page = 1, limit = 10, name = '', sortBy = 'recommended' }: FetchHotelsParams,
+    { page = 1, limit = 10, name = '', sortBy = '' }: FetchHotelsParams,
   ): PlaceHotels[] {
     const allHotels = this.flattenAndTransformHotels(places, name, sortBy)
+
+    if (allHotels.length === 0) {
+      return []
+    }
 
     const startIndex = (page - 1) * limit
     const endIndex = startIndex + limit

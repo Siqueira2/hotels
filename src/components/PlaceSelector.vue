@@ -40,13 +40,7 @@
           </q-select>
 
           <div class="row justify-end q-mt-md">
-            <q-btn
-              :label="$t('hotels.search.action')"
-              color="primary"
-              type="submit"
-              rounded
-              unelevated
-            />
+            <q-btn :label="getButtonLabel" color="primary" type="submit" rounded unelevated />
           </div>
         </q-form>
       </q-card-section>
@@ -58,6 +52,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter, useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 import type { Place } from 'src/models/place'
 
@@ -67,6 +62,7 @@ type FormattedPlace = Place & { label: string; value: number }
 
 const router = useRouter()
 const route = useRoute()
+const { t } = useI18n()
 const placeStore = usePlaceStore()
 const { places } = storeToRefs(placeStore)
 const { fetchPlaces } = placeStore
@@ -78,6 +74,12 @@ onMounted(async () => {
   loading.value = true
   await fetchPlaces()
   loading.value = false
+})
+
+const getButtonLabel = computed(() => {
+  return model.value && Object.keys(route.query).length
+    ? t('hotels.search.action')
+    : t('hotels.search.button-label')
 })
 
 const formattedPlaces = computed(() =>

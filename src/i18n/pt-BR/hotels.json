@@ -5,7 +5,8 @@
     "label": "Destino",
     "placeholder": "Digite o nome da cidade ou estado",
     "no-results": "Nenhuma cidade ou estado encontrado",
-    "action": "Alterar busca"
+    "action": "Alterar busca",
+    "button-label": "Buscar"
   },
 
   "hotel": {
