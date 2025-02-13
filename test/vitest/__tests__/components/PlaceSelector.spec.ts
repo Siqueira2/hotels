@@ -5,7 +5,7 @@ import { createTestingPinia } from '@pinia/testing'
 import type { ComponentPublicInstance } from 'vue'
 
 import { usePlaceStore } from 'src/stores/place'
-import { Place as PlaceModel } from 'src/models/place'
+import { Place as PlaceModel } from 'src/models'
 import type { Place as PlaceType } from 'src/interfaces'
 
 import PlaceSelector from 'src/components/PlaceSelector.vue'

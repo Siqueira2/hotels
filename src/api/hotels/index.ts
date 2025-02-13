@@ -1,6 +1,5 @@
 import type { PlaceHotels, FetchHotelsParams } from 'src/interfaces'
-import { PlaceHotelModel } from 'src/models/placeHotel'
-import { HotelFilterService } from 'src/models/HotelFilterService'
+import { PlaceHotelModel, HotelFilterService } from 'src/models'
 import placeHotels from 'src/data/hotel.json'
 
 export const fetchPlaceHotels = async (pagination: FetchHotelsParams) => {

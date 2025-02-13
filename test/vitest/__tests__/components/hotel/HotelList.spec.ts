@@ -11,7 +11,7 @@ import HotelList from 'src/components/hotel/HotelList.vue'
 import HotelCard from 'src/components/hotel/HotelCard.vue'
 
 import HOTEL from 'src/data/hotel.json'
-import { Hotel } from 'src/models/hotel'
+import { Hotel } from 'src/models'
 
 vi.mock('vue-router', () => {
   return {

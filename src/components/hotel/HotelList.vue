@@ -33,7 +33,7 @@ import { storeToRefs } from 'pinia'
 import { useRoute } from 'vue-router'
 
 import { useHotelStore } from 'src/stores/hotel'
-import type { Hotel } from 'src/models/hotel'
+import type { Hotel } from 'src/models'
 
 import HotelCard from 'src/components/hotel/HotelCard.vue'
 import HotelDrawer from 'src/components/hotel/HotelDrawer.vue'

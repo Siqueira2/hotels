@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 import { fetchPlaceHotels } from 'src/api/hotels'
 
-import type { Hotel as HotelModel } from 'src/models/hotel'
+import type { Hotel as HotelModel } from 'src/models'
 import type { FetchHotelsParams } from 'src/interfaces'
 
 export const useHotelStore = defineStore('hotels', () => {
@@ -13,7 +13,7 @@ export const useHotelStore = defineStore('hotels', () => {
     page = 1,
     limit = 10,
     name = '',
-    sortBy = 'recommended',
+    sortBy = '',
   }: FetchHotelsParams) => {
     const response = await fetchPlaceHotels({ page, limit, name, sortBy })
     const newHotelsData = response.flatMap(({ hotels }) => hotels)

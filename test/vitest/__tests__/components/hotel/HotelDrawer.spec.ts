@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 import type { Hotel as HotelType } from 'src/interfaces'
-import { Hotel } from 'src/models/hotel'
+import { Hotel } from 'src/models'
 
 import HotelDrawer from 'src/components/hotel/HotelDrawer.vue'
 

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 import { fetchPlaces as fetchPlacesApi } from 'src/api'
-import type { Place } from 'src/models/place'
+import type { Place } from 'src/models'
 
 export const usePlaceStore = defineStore('place', () => {
   const places = ref<Place[]>([])

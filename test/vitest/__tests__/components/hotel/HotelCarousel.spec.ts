@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils'
 import type { ComponentPublicInstance } from 'vue'
 
 import type { Hotel as HotelType } from 'src/interfaces'
-import { Hotel } from 'src/models/hotel'
+import { Hotel } from 'src/models'
 
 import HotelCarousel from 'src/components/hotel/HotelCarousel.vue'
 

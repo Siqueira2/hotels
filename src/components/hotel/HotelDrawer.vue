@@ -33,7 +33,12 @@
         <q-separator />
 
         <div class="row q-gutter-x-xl q-my-md" data-testid="hotel-amenities">
-          <div v-for="amenity in getHotelAmenities" :key="amenity.key" class="row q-mb-sm">
+          <div
+            v-for="amenity in getHotelAmenities"
+            :key="amenity.key"
+            class="row"
+            :class="{ 'q-mb-sm': showAmenities }"
+          >
             <q-icon :name="getAmenityIcon(amenity.key)" size="xs" color="grey-6" class="q-mr-sm" />
 
             <p class="text-grey-6 q-mb-none">{{ amenity.label }}</p>
@@ -70,7 +75,7 @@
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import type { Hotel } from 'src/models/hotel'
+import type { Hotel } from 'src/models'
 
 import { AmenitiesEnum } from 'src/interfaces'
 

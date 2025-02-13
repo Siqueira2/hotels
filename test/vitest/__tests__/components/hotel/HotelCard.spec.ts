@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 
 import HotelCard from 'src/components/hotel/HotelCard.vue'
 import type { Hotel as HotelType } from 'src/interfaces'
-import { Hotel } from 'src/models/hotel'
+import { Hotel } from 'src/models'
 
 import HOTEL from 'src/data/hotel.json'
 

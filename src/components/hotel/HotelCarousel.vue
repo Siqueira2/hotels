@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import type { Hotel } from 'src/models/hotel'
+import type { Hotel } from 'src/models'
 
 const props = defineProps<{
   hotel: Hotel

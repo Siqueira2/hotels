@@ -55,7 +55,7 @@ import { useRouter, useRoute } from 'vue-router'
 import type { LocationQueryRaw } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import type { Place } from 'src/models/place'
+import type { Place } from 'src/models'
 
 import { usePlaceStore } from 'src/stores/place'
 

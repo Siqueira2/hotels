@@ -88,7 +88,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import type { Hotel } from 'src/models/hotel'
+import type { Hotel } from 'src/models'
 import { AmenitiesEnum } from 'src/interfaces'
 
 import HotelCarousel from 'src/components/hotel/HotelCarousel.vue'
