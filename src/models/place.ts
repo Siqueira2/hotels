@@ -24,6 +24,10 @@ export class Place {
   }
 
   public get formattedName(): string {
+    return `${this.name}, ${this.state.name}`
+  }
+
+  public get formattedNameWithShortName(): string {
     return `${this.name}, ${this.state.shortname}`
   }
 }
