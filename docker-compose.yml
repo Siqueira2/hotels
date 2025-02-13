@@ -1,0 +1,10 @@
+services:
+  frontend:
+    container_name: hotels_frontend
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - 9000:9000
