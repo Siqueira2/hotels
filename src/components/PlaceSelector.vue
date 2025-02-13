@@ -52,6 +52,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter, useRoute } from 'vue-router'
+import type { LocationQueryRaw } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 import type { Place } from 'src/models/place'
@@ -102,7 +103,7 @@ const setModel = (place: string) => {
 const filterPlaces = (search: string, update: (fn: () => void) => void) => {
   setFilteredPlaces()
   update(() => {
-    const searchText = search.toLowerCase()
+    const searchText: string = search.toLowerCase()
     filteredPlaces.value = formattedPlaces.value.filter((place) =>
       place.label.toLowerCase().includes(searchText),
     )
@@ -110,7 +111,16 @@ const filterPlaces = (search: string, update: (fn: () => void) => void) => {
 }
 
 const onSubmit = async () => {
-  if (!model.value) return
+  if (!model.value && route.query.name) {
+    const query: { [key: string]: unknown } = {
+      ...route.query,
+    }
+
+    delete query.name
+
+    await router.push({ query: query as LocationQueryRaw })
+    return
+  }
 
   await router.push({
     query: {
