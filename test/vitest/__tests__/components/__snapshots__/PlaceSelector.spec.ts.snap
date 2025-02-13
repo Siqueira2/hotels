@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PlaceSelector > should match snapshot 1`] = `
+"<div>
+  <div class=\\"q-card q-card--flat no-shadow\\">
+    <h5 class=\\"text-grey-2 q-px-md q-py-sm q-ma-none\\">hotels.title</h5>
+    <hr class=\\"q-separator q-separator--horizontal\\" aria-orientation=\\"horizontal\\">
+    <div class=\\"q-card__section q-card__section--vert\\">
+      <form class=\\"q-form\\">
+        <p class=\\"text-weight-semibold q-mb-sm text-grey-6\\">hotels.search.label <span class=\\"text-red-5 text-weight-bold\\">*</span></p><label for=\\"f_test-id\\" class=\\"q-field row no-wrap items-start q-field--outlined q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--dense full-width row\\">
+          <!---->
+          <div class=\\"q-field__inner relative-position col self-stretch\\">
+            <div class=\\"q-field__control relative-position row no-wrap\\" tabindex=\\"-1\\">
+              <div class=\\"q-field__control-container col relative-position row no-wrap q-anchor--skip\\">
+                <div class=\\"q-field__native row items-center\\"><input class=\\"q-field__input q-placeholder col\\" type=\\"search\\" tabindex=\\"0\\" role=\\"combobox\\" aria-readonly=\\"false\\" aria-autocomplete=\\"list\\" aria-expanded=\\"false\\" aria-controls=\\"f_test-id_lb\\" placeholder=\\"hotels.search.placeholder\\" id=\\"f_test-id\\" value=\\"\\"></div>
+                <!---->
+              </div>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!---->
+        </label>
+        <div class=\\"row justify-end q-mt-md\\"><button class=\\"q-btn q-btn-item non-selectable no-outline q-btn--unelevated q-btn--rectangle q-btn--rounded bg-primary text-white q-btn--actionable q-focusable q-hoverable\\" tabindex=\\"0\\" type=\\"submit\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><span class=\\"block\\">Buscar</span></span></button></div>
+      </form>
+    </div>
+  </div>
+</div>"
+`;
