@@ -10,15 +10,7 @@ vi.mock('vue-router')
 type SortSelectorWrapper = VueWrapper<ComponentPublicInstance<typeof SortSelector>>
 
 const createWrapper = (): SortSelectorWrapper =>
-  mount(SortSelector, {
-    global: {
-      mocks: {
-        $router: {
-          push: vi.fn(),
-        },
-      },
-    },
-  })
+  mount(SortSelector, { global: { mocks: { $router: { push: vi.fn() } } } })
 
 describe('SortSelector', () => {
   let wrapper: SortSelectorWrapper

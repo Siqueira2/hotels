@@ -108,7 +108,7 @@ import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import type { Hotel } from 'src/models/hotel'
-import { AmenitiesEnum } from 'src/enums'
+import { AmenitiesEnum } from 'src/interfaces'
 
 const { hotel } = defineProps<{
   hotel: Hotel

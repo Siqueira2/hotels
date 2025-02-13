@@ -14,7 +14,7 @@ import PLACE from 'src/data/place.json'
 
 vi.mock('vue-router', () => {
   return {
-    useRoute: () => ({ query: { id: '123' } }),
+    useRoute: () => ({ query: {} }),
     useRouter: () => ({ push: vi.fn() }),
   }
 })
@@ -40,6 +40,7 @@ describe('PlaceSelector', () => {
   beforeEach(() => {
     wrapper = createWrapper()
     store = usePlaceStore()
+    store.places = [placeMock]
   })
 
   it('should match snapshot', () => {
@@ -60,8 +61,6 @@ describe('PlaceSelector', () => {
   })
 
   it('should enable the button when a place is selected', async () => {
-    store.places = [placeMock]
-
     const input = wrapper.find('input')
     await input.setValue('São Paulo')
 
@@ -77,8 +76,6 @@ describe('PlaceSelector', () => {
   })
 
   it('should not show no-option message when places are found', async () => {
-    store.places = [placeMock]
-
     const input = wrapper.find('input')
     await input.setValue('São Paulo')
 
