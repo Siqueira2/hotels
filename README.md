@@ -1,6 +1,6 @@
 # Guia para Subir o Frontend com Docker e Executar Testes
 
-Este guia fornece instruções para configurar e executar o ambiente frontend utilizando Docker, além de orientações para rodar os testes automatizados e executar o projeto localmente com `npm install`.
+Este guia fornece instruções para configurar e executar o ambiente frontend utilizando Docker, além de orientações para rodar os testes automatizados.
 
 ## Requisitos
 
@@ -8,13 +8,13 @@ Certifique-se de que sua máquina possui os seguintes softwares instalados:
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- [Node.js e npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/)
+- [Node.js e npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/) (Caso deseje executar localmente)
 
 ## Passos para Subir o Frontend com Docker
 
-1. **Construir e Iniciar o Container**
+**Construir e Iniciar o Container**
 
-   Execute os comandos abaixo para construir a imagem Docker e iniciar o container em segundo plano:
+Execute os comandos abaixo para construir a imagem Docker e iniciar o container em segundo plano:
 
    ```
    docker compose pull
@@ -23,6 +23,12 @@ Certifique-se de que sua máquina possui os seguintes softwares instalados:
    ```
 
 Este comando executa o ambiente no modo destacado (background).
+Caso queira executar localmente, execute os seguintes comandos:
+
+   ```
+   npm install
+   npm run dev
+   ```
 
 ### 3. Acessar a Aplicação
 
