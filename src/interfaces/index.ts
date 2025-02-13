@@ -1,4 +1,27 @@
-import type { AmenitiesEnum } from 'src/enums'
+export enum AmenitiesEnum {
+  WI_FI = 'wifi',
+  RESTAURANT = 'restaurant',
+  ROOM_SERVICE = 'room_service',
+  MEETING_ROOM = 'meeting_room',
+  LAUNDRY = 'local_laundry_service',
+  BREAKFAST = 'bakery_dining',
+  PARKING = 'local_parking',
+  FITNESS_CENTER = 'fitness_center',
+  POOL = 'pool',
+  SPA = 'self_improvement',
+  STEAM_ROOM = 'hot_tub',
+  PETS = 'pets',
+  PUB = 'sports_bar',
+  AIR_CONDITIONING = 'ac_unit',
+  SAFE = 'lock',
+  ROOM_TV = 'tv',
+  RECEPTION_24_HOURS = 'timer',
+  STAGE = 'vertical_shades',
+  AUDITORIUM = 'vertical_shades_closed',
+  MASSAGE = 'spa',
+  PLAY_GROUND = 'mood',
+  TRANSFER = 'cases',
+}
 
 export interface State {
   name: string
