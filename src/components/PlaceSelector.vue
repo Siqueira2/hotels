@@ -98,7 +98,8 @@ const setFilteredPlaces = () => {
 }
 
 const setModel = (place: string) => {
-  model.value = formattedPlaces.value.find(({ label }) => label === place)?.shortName as string || place
+  model.value =
+    (formattedPlaces.value.find(({ label }) => label === place)?.shortName as string) || place
 }
 
 const filterPlaces = (search: string, update: (fn: () => void) => void) => {
@@ -106,7 +107,7 @@ const filterPlaces = (search: string, update: (fn: () => void) => void) => {
   update(() => {
     const searchText: string = search.toLowerCase()
     filteredPlaces.value = formattedPlaces.value.filter((place) =>
-      place.label.toLowerCase().includes(searchText)
+      place.label.toLowerCase().includes(searchText),
     )
   })
 }
@@ -123,10 +124,14 @@ const onSubmit = async () => {
     return
   }
 
+  const name: string =
+    formattedPlaces.value.find(({ shortName }) => shortName === model.value)?.label ||
+    (model.value as string)
+
   await router.push({
     query: {
       ...route.query,
-      name: model.value,
+      name,
     },
   })
 }
