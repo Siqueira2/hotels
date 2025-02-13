@@ -16,21 +16,21 @@
           </p>
 
           <q-select
-            v-model="model"
+            :model-value="model"
             :options="filteredPlaces"
-            dense
-            outlined
             use-input
             hide-selected
-            hide-dropdown-icon
             fill-input
+            dense
+            outlined
+            hide-dropdown-icon
             class="full-width row"
             :disable="loading"
             :loading
             input-debounce="0"
             :placeholder="$t('hotels.search.placeholder')"
             @filter="filterPlaces"
-            @update:model-value="setModel"
+            @input-value="setModel"
           >
             <template #no-option>
               <div class="q-pa-md">
@@ -93,8 +93,8 @@ const setFilteredPlaces = () => {
   filteredPlaces.value = formattedPlaces.value
 }
 
-const setModel = (place: FormattedPlace) => {
-  model.value = place.label
+const setModel = (place: string) => {
+  model.value = place
 }
 
 const filterPlaces = (search: string, update: (fn: () => void) => void) => {
@@ -110,13 +110,10 @@ const filterPlaces = (search: string, update: (fn: () => void) => void) => {
 const onSubmit = async () => {
   if (!model.value) return
 
-  const selectedPlace = formattedPlaces.value.find((place) => place.label === model.value)
-  if (!selectedPlace) return
-
   await router.push({
     query: {
       ...route.query,
-      name: selectedPlace.label,
+      name: model.value,
     },
   })
 }
