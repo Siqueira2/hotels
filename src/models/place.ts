@@ -28,6 +28,21 @@ export class Place {
   }
 
   public get formattedNameWithShortName(): string {
-    return `${this.name}, ${this.state.shortname}`
+    const words = this.name.split(' ')
+    let initials = ''
+
+    if (words.length === 1) {
+      initials = words[0]?.slice(0, 3).toUpperCase() || ''
+    }
+
+    if (words.length > 2) {
+      const firstInitial = words[0]?.charAt(0).toUpperCase() || ''
+      const lastInitial = words[words.length - 1]?.charAt(0).toUpperCase() || ''
+      initials = `${firstInitial}${lastInitial}`
+    }
+
+    initials ||= words.map((word) => word?.charAt(0).toUpperCase() || '').join('')
+
+    return `${this.name}, ${initials}`
   }
 }
