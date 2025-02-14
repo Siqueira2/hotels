@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HomeView > should match snapshots 1`] = `
+"<div data-v-6fbf89c5=\\"\\" class=\\"q-page-container row justify-center\\">
+  <div data-v-6fbf89c5=\\"\\" class=\\"col-12 col-md-8\\">
+    <div data-v-6fbf89c5=\\"\\">
+      <div class=\\"q-card q-card--flat no-shadow\\">
+        <h5 class=\\"text-grey-2 q-px-md q-py-sm q-ma-none\\">hotels.title</h5>
+        <hr class=\\"q-separator q-separator--horizontal\\" aria-orientation=\\"horizontal\\">
+        <div class=\\"q-card__section q-card__section--vert\\">
+          <form class=\\"q-form\\">
+            <p class=\\"text-weight-semibold q-mb-sm text-grey-6\\">hotels.search.label <span class=\\"text-red-5 text-weight-bold\\">*</span></p><label for=\\"f_test-id\\" class=\\"q-field row no-wrap items-start q-field--outlined q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--dense full-width row\\">
+              <!---->
+              <div class=\\"q-field__inner relative-position col self-stretch\\">
+                <div class=\\"q-field__control relative-position row no-wrap\\" tabindex=\\"-1\\">
+                  <div class=\\"q-field__control-container col relative-position row no-wrap q-anchor--skip\\">
+                    <div class=\\"q-field__native row items-center\\"><input class=\\"q-field__input q-placeholder col\\" type=\\"search\\" tabindex=\\"0\\" role=\\"combobox\\" aria-readonly=\\"false\\" aria-autocomplete=\\"list\\" aria-expanded=\\"false\\" aria-controls=\\"f_test-id_lb\\" placeholder=\\"hotels.search.placeholder\\" id=\\"f_test-id\\" value=\\"\\"></div>
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <!---->
+            </label>
+            <div class=\\"row justify-end q-mt-md\\"><button class=\\"q-btn q-btn-item non-selectable no-outline q-btn--unelevated q-btn--rectangle q-btn--rounded bg-primary text-white q-btn--actionable q-focusable q-hoverable\\" tabindex=\\"0\\" type=\\"submit\\"><span class=\\"q-focus-helper\\"></span><span class=\\"q-btn__content text-center col items-center q-anchor--skip justify-center row\\"><span class=\\"block\\">Buscar</span></span></button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div data-v-6fbf89c5=\\"\\" class=\\"row justify-between q-mt-md\\">
+      <div data-v-6fbf89c5=\\"\\" class=\\"q-breadcrumbs text-grey-6\\">
+        <div class=\\"flex items-center justify-start q-gutter-sm\\">
+          <div class=\\"flex items-center text-primary\\"><span class=\\"q-breadcrumbs__el q-link flex inline items-center relative-position q-link--focusable\\">shared.breadcrumbs.home</span></div>
+          <div class=\\"q-breadcrumbs__separator\\"><i class=\\"q-icon text-primary notranslate material-icons\\" style=\\"font-size: 1.5em;\\" aria-hidden=\\"true\\" role=\\"presentation\\">chevron_right</i></div>
+          <div class=\\"flex items-center q-breadcrumbs--last\\"><span class=\\"q-breadcrumbs__el q-link flex inline items-center relative-position q-link--focusable\\">shared.breadcrumbs.hotels</span></div>
+        </div>
+      </div>
+      <div data-v-4f29a76a=\\"\\" data-v-6fbf89c5=\\"\\" class=\\"row items-center\\"><span data-v-4f29a76a=\\"\\" class=\\"q-mr-sm text-grey-6\\">shared.sort-by</span><label data-v-4f29a76a=\\"\\" class=\\"q-field row no-wrap items-start q-field--borderless q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--float q-field--dense\\" for=\\"f_test-id\\">
+          <!---->
+          <div class=\\"q-field__inner relative-position col self-stretch\\">
+            <div class=\\"q-field__control relative-position row no-wrap\\" tabindex=\\"-1\\">
+              <div class=\\"q-field__control-container col relative-position row no-wrap q-anchor--skip\\">
+                <div class=\\"q-field__native row items-center\\">
+                  <p data-v-4f29a76a=\\"\\" class=\\"text-primary text-weight-bold q-ma-none\\">Recomendados</p><input class=\\"q-select__focus-target\\" id=\\"f_test-id\\" readonly=\\"\\" tabindex=\\"0\\" role=\\"combobox\\" aria-readonly=\\"false\\" aria-autocomplete=\\"none\\" aria-expanded=\\"false\\" aria-controls=\\"f_test-id_lb\\" value=\\"Recomendados\\">
+                </div>
+                <!---->
+              </div>
+              <div class=\\"q-field__append q-field__marginal row no-wrap items-center\\"><i data-v-4f29a76a=\\"\\" class=\\"q-icon text-primary notranslate material-icons\\" aria-hidden=\\"true\\" role=\\"presentation\\">expand_more</i></div>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!---->
+        </label></div>
+    </div>
+    <div class=\\"q-infinite-scroll\\">
+      <div class=\\"row justify-center q-my-md\\">
+        <p class=\\"text-grey-2\\">hotels.no-hotels</p>
+      </div>
+      <div class=\\"q-infinite-scroll__loading invisible\\">
+        <!--v-if-->
+      </div>
+    </div>
+    <!--v-if-->
+  </div>
+</div>"
+`;
