@@ -63,6 +63,8 @@ Dentro do container, execute o seguinte comando para rodar os testes:
 ```
 npm run test:unit
 ```
+### Preview
+Link para [preview](https://hotels-iota.vercel.app/).
 
 ### Customize the configuration
 
