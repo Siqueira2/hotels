@@ -6,7 +6,7 @@
 
     <q-breadcrumbs-el :label="$t('shared.breadcrumbs.home')" to="/" />
     <q-breadcrumbs-el :label="$t('shared.breadcrumbs.hotels')" />
-    <template v-if="breadcrumbs">
+    <template v-if="route.query.name">
       <q-breadcrumbs-el :label="breadcrumbs" />
     </template>
   </q-breadcrumbs>
