@@ -21,6 +21,6 @@ const { t } = useI18n()
 const route = useRoute()
 
 const breadcrumbs = computed(() =>
-  t('shared.breadcrumbs.accommodation', { suffix: route.query.name as string }),
+  `${t('shared.breadcrumbs.accommodation')} ${route.query.name}`,
 )
 </script>

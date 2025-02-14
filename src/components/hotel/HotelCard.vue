@@ -100,7 +100,7 @@ const { hotel } = defineProps<{
 const { t } = useI18n()
 
 const getPricePerNightText = computed(() =>
-  t('hotels.hotel.price-per-night', { price: hotel.getPricePerNight }),
+  `${hotel.getPricePerNight}${t('hotels.hotel.price-per-night')}`,
 )
 
 const getCurrencyText = (price: string | undefined): string => {
